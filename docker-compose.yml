@@ -1,0 +1,29 @@
+services:
+  # La base de données PostgreSQL utilisée par Odoo
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"   # pour te connecter à la base et t'entraîner en SQL
+
+  # Odoo 19
+  odoo:
+    image: odoo:20.0
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"   # Odoo sera accessible sur http://localhost:8069
+    volumes:
+      - odoo-data:/var/lib/odoo          # fichiers internes d'Odoo
+      - ./config:/etc/odoo               # ton fichier de configuration
+      - ./addons:/mnt/extra-addons       # TES modules (c'est ici que tu coderas)
+    command: -- --dev=xml                # recharge les vues XML sans redémarrer
+
+volumes:
+  db-data:
+  odoo-data:
