@@ -48,7 +48,6 @@ it listens on. The logs gave the answer in one line.
 **Goal:** read Odoo's Coding guidelines and Git guidelines before writing code.
 
 ### Rules I will apply from now on
-<!-- Read and adjust: keep only the rules you agree with, in your own words. -->
 - One file per main model, views in `<model>_views.xml`, access rights in
   `security/ir.model.access.csv`.
 - Model names are singular, with dots and the module prefix
@@ -71,3 +70,56 @@ I read the template line by line before committing and removed both rules.
 
 **Lesson:** a generic template is a starting point, not a final answer.
 Read it before pushing and check it against the framework's conventions.
+
+---
+
+## Session 3 — Module skeleton and first model (October 8, 2026)
+
+**Goal:** create the `bs_haccp` module, design the data model and write the
+first model (`bs.haccp.location`).
+
+### What I learned
+- **Data model design:** a model is a table, a field is a column. I designed
+  three models on paper before coding: locations, equipment and readings.
+  A reading stores only `equipment_id`, so the equipment name is written
+  once (normalization).
+- **Naming rules:** Many2one fields end with `_id`, One2many/Many2many with
+  `_ids`, the main field is `name`, and reserved words like `type` are avoided.
+- **Odoo adds technical columns to every table:** `id` (primary key),
+  `create_uid`, `create_date`, `write_uid` and `write_date`.
+- **Restart vs Upgrade:** a restart reloads the Python code, an Upgrade
+  updates the database (tables, columns) and the module information.
+  After a manifest change: Update Apps List, then Upgrade.
+- **Module category:** an unknown category creates a new one. I used the same
+  category as the official Maintenance app (`Supply Chain/Maintenance`).
+- **Git:** run `git status` and `git diff` before every commit, use the right
+  tag (`[ADD]`, `[IMP]`, `[FIX]`), and never rewrite a pushed commit.
+- **Docker:** a container keeps the absolute path of its mounted folders.
+  After moving the project folder, the containers must be recreated
+  (`docker compose down` then `up -d`). Renaming the folder would change the
+  volume names and hide the database.
+
+### Design choices
+- **Business choices:** locations configurable by each restaurant (consistent
+  data instead of free text), temperature thresholds on each equipment,
+  a check state computed automatically.
+- **Technical choices:** the `bs_` prefix recommended by Odoo's guidelines,
+  and an `active` field to archive locations instead of deleting them,
+  so the HACCP history stays complete for an inspection.
+
+### What blocked me
+- The model table was not created. Three mistakes in the import chain:
+  a typo in a file name (`__intit__.py`), files edited but not saved,
+  and the two `__init__.py` files with swapped imports.
+- Odoo then returned an Internal Server Error.
+
+### How I solved it
+- I checked each link of the import chain with `cat`, one file at a time.
+- With AI help, I read the traceback. Method for next time:
+  the **last line** gives the error, the **`File` line just above** gives
+  the file and the line.
+
+### Habits for next session
+- Write one file at a time, finish it and save it before moving on.
+- Turn on Auto Save in VS Code.
+- Verify each step (logs, `psql`) before going further.
