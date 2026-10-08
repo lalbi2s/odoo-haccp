@@ -59,7 +59,15 @@ it listens on. The logs gave the answer in one line.
 - Never write raw SQL when the ORM can do it, and never call `cr.commit()`.
 
 ### What blocked me
-<!-- To complete. -->
+I added GitHub's official Python `.gitignore` template and almost pushed it
+as is. Two of its rules conflict with the way Odoo modules are organized:
+- `*.pot` would ignore Odoo translation templates, which live in each
+  module's `i18n/` folder and must be versioned.
+- `lib/` would ignore every folder named `lib`, including `static/lib/`,
+  where Odoo stores JavaScript libraries.
 
 ### How I solved it
-<!-- To complete. -->
+I read the template line by line before committing and removed both rules.
+
+**Lesson:** a generic template is a starting point, not a final answer.
+Read it before pushing and check it against the framework's conventions.
