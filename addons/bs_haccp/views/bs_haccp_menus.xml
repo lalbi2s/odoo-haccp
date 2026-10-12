@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="bs_haccp_menu_root" name="HACCP" sequence="10"/>
+    <menuitem id="bs_haccp_menu_root" name="HACCP" sequence="10"
+     web_icon="bs_haccp,static/description/icon.png"/>
 
         <menuitem id="bs_haccp_reading_menu"
               name="Readings"
