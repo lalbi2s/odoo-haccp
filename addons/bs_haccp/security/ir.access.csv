@@ -1,4 +1,7 @@
 id,name,model_id,group_id/id,operation,domain
-access_bs_haccp_location_user,bs.haccp.location user,bs.haccp.location,base.group_user,crud,
-access_bs_haccp_equipment_user,bs.haccp.equipment user,bs.haccp.equipment,base.group_user,crud,
-access_bs_haccp_reading_user,bs.haccp.reading user,bs.haccp.reading,base.group_user,crud,
+access_bs_haccp_location_user,bs.haccp.location user,bs.haccp.location,group_bs_haccp_user,r,
+access_bs_haccp_location_manager,bs.haccp.location manager,bs.haccp.location,group_bs_haccp_manager,crud,
+access_bs_haccp_equipment_user,bs.haccp.equipment user,bs.haccp.equipment,group_bs_haccp_user,r,
+access_bs_haccp_equipment_manager,bs.haccp.equipment manager,bs.haccp.equipment,group_bs_haccp_manager,crud,
+access_bs_haccp_reading_user,bs.haccp.reading user,bs.haccp.reading,group_bs_haccp_user,cr,
+access_bs_haccp_reading_manager,bs.haccp.reading manager,bs.haccp.reading,group_bs_haccp_manager,cru,
