@@ -10,6 +10,11 @@
                 <field name="location_id"/>
                 <field name="temp_min"/>
                 <field name="temp_max"/>
+                <field name="last_reading_date"/>
+                <field name="check_state" widget="badge"
+                       decoration-success="check_state == 'up_to_date'"
+                       decoration-warning="check_state == 'due_soon'"
+                       decoration-danger="check_state == 'overdue'"/>
             </list>
         </field>
     </record>
@@ -38,13 +43,21 @@
                             <field name="reference"/>
                             <field name="serial_number"/>
                         </group>
+                        <group>
+                            <field name="last_reading_date"/>
+                            <field name="check_state" widget="badge"
+                                   decoration-success="check_state == 'up_to_date'"
+                                   decoration-warning="check_state == 'due_soon'"
+                                   decoration-danger="check_state == 'overdue'"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="Readings" name="readings">
                             <field name="reading_ids">
-                                <list>
+                                <list decoration-danger="not is_compliant">
                                     <field name="reading_date"/>
                                     <field name="temperature"/>
+                                    <field name="is_compliant"/>
                                     <field name="user_id"/>
                                 </list>
                             </field>
