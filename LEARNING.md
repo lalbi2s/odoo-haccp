@@ -49,7 +49,7 @@ it listens on. The logs gave the answer in one line.
 
 ### Rules I will apply from now on
 - One file per main model, views in `<model>_views.xml`, access rights in
-  `security/ir.model.access.csv`.
+  `security/ir.access.csv` (Odoo 20, see Session 5).
 - Model names are singular, with dots and the module prefix
   (for example `module.equipment`, not `module.equipments`).
 - Relational fields: `_id` for Many2one, `_ids` for One2many / Many2many.
@@ -123,3 +123,58 @@ first model (`bs.haccp.location`).
 - Write one file at a time, finish it and save it before moving on.
 - Turn on Auto Save in VS Code.
 - Verify each step (logs, `psql`) before going further.
+
+---
+
+## Session 4 — All three models (October 8, 2026)
+
+**Goal:** finish the data model with equipment and temperature readings.
+
+### What I learned
+- **Code in English:** labels and selection values are written in English.
+  Translations go in the `i18n/` folder.
+- **Selection values** are stored as they are in the database
+  (`fridge`, `freezer`), so they must stay stable and technical.
+- **Default values** (`default=`) are applied by Odoo in Python when a record
+  is created. Only `required=True` becomes a database rule (`not null`).
+- **`ondelete='restrict'`** on `equipment_id`: the database refuses to delete
+  a piece of equipment that has readings.
+- **A One2many field is not stored:** `reading_ids` has no column. Odoo finds
+  the readings through `equipment_id` on the other side.
+- **Datetime fields** are stored in UTC and shown in the user's time zone.
+- **Ruff:** a `pyproject.toml` at the project root keeps Odoo's style
+  (single quotes, imports in `__init__.py` files left as they are).
+
+---
+
+## Session 5 — Access rights and views (October 12, 2026)
+
+**Goal:** make the three models usable in Odoo's interface.
+
+### What I learned
+- **Access rights in Odoo 20** use `security/ir.access.csv`, with an
+  `operation` column (`crud`) instead of four `perm_*` columns.
+  The old `ir.model.access.csv` no longer exists.
+- **Views are XML records:** a list view, a form view, a search view and a
+  window action for each model, then menu items that open the actions.
+- **Order matters in the manifest:** a file that uses an action must be
+  loaded after the file that defines it.
+- **Search views:** filters use a domain, such as
+  `[('active', '=', False)]` for archived records, and `group_by` for grouping.
+- **Archive instead of delete:** with `ondelete='restrict'` and an `active`
+  field, Odoo refuses to delete equipment that has readings and offers to
+  archive it instead.
+
+### What blocked me
+- `KeyError: 'ir.model.access'` during the upgrade.
+- `FileNotFoundError` twice: typos in file names
+  (`ir.model.acces.csv`, `bs_haccp_location.views.xml`).
+- After changing the manifest, Odoo still looked for the old file name.
+
+### How I solved it
+- The last line of the traceback pointed to the cause each time.
+- Odoo 20 replaced `ir.model.access.csv` with `ir.access.csv`. Most tutorials
+  and AI answers still describe older versions, so I check the version
+  of every source.
+- `ls` showed the real file names.
+- After changing the manifest's data list, restart Odoo before the upgrade.
