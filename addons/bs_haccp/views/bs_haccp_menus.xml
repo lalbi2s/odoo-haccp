@@ -2,6 +2,12 @@
 <odoo>
     <menuitem id="bs_haccp_menu_root" name="HACCP" sequence="10"/>
 
+        <menuitem id="bs_haccp_reading_menu"
+              name="Readings"
+              parent="bs_haccp_menu_root"
+              action="bs_haccp_reading_action"
+              sequence="10"/>
+
     <menuitem id="bs_haccp_equipment_menu"
               name="Equipment"
               parent="bs_haccp_menu_root"
