@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="bs_haccp_menu_root" name="HACCP" sequence="10"/>
+
+    <menuitem id="bs_haccp_menu_config"
+              name="Configuration"
+              parent="bs_haccp_menu_root"
+              sequence="100"/>
+
+    <menuitem id="bs_haccp_location_menu"
+              name="Locations"
+              parent="bs_haccp_menu_config"
+              action="bs_haccp_location_action"
+              sequence="10"/>
+</odoo>
