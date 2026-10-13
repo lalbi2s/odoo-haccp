@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class BsHaccpReading(models.Model):
@@ -24,3 +25,16 @@ class BsHaccpReading(models.Model):
             reading.is_compliant = (
                 equipment.temp_min <= reading.temperature <= equipment.temp_max
             )
+
+    @api.constrains('temperature', 'equipment_id', 'corrective_action')
+    def _check_corrective_action(self):
+        for reading in self:
+            if (
+                not reading.is_compliant
+                and not (reading.corrective_action or '').strip()
+            ):
+                raise ValidationError(
+                    self.env._(
+                        'This reading is out of range: describe the corrective action.'
+                    )
+                )
