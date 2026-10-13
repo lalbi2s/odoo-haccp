@@ -19,6 +19,41 @@
         </field>
     </record>
 
+    <record id="bs_haccp_equipment_view_kanban" model="ir.ui.view">
+        <field name="name">bs.haccp.equipment.view.kanban</field>
+        <field name="model">bs.haccp.equipment</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex align-items-start">
+                            <field name="name" class="fw-bold fs-5"/>
+                            <field name="check_state" widget="badge" class="ms-auto"
+                                   decoration-success="check_state == 'up_to_date'"
+                                   decoration-warning="check_state == 'due_soon'"
+                                   decoration-danger="check_state == 'overdue'"/>
+                        </div>
+                        <div class="text-muted">
+                            <field name="equipment_type"/>
+                            <t t-if="record.location_id.raw_value">
+                                - <field name="location_id"/>
+                            </t>
+                        </div>
+                        <div>
+                            <field name="temp_min"/> °C to <field name="temp_max"/> °C
+                        </div>
+                        <footer>
+                            <span t-if="record.last_reading_date.raw_value">
+                                Last reading: <field name="last_reading_date"/>
+                            </span>
+                            <span t-else="" class="text-muted">No reading yet</span>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="bs_haccp_equipment_view_form" model="ir.ui.view">
         <field name="name">bs.haccp.equipment.view.form</field>
         <field name="model">bs.haccp.equipment</field>
@@ -95,6 +130,6 @@
     <record id="bs_haccp_equipment_action" model="ir.actions.act_window">
         <field name="name">Equipment</field>
         <field name="res_model">bs.haccp.equipment</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">kanban,list,form</field>
     </record>
 </odoo>
