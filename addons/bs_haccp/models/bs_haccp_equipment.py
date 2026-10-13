@@ -39,6 +39,11 @@ class BsHaccpEquipment(models.Model):
     )
     active = fields.Boolean(default=True)
 
+    _temp_range_check = models.Constraint(
+        'CHECK(temp_min < temp_max)',
+        'The minimum temperature must be lower than the maximum temperature.',
+    )
+
     @api.depends('reading_ids.reading_date')
     def _compute_last_reading_date(self):
         for equipment in self:
