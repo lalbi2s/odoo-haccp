@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Marc Demo can record readings -->
+    <record id="base.user_demo" model="res.users">
+        <field name="group_ids" eval="[(4, ref('bs_haccp.group_bs_haccp_user'))]"/>
+    </record>
+
+    <record id="bs_haccp_location_cold_room" model="bs.haccp.location">
+        <field name="name">Cold Room</field>
+        <field name="description">Walk-in cold room for bulk storage.</field>
+    </record>
+
+    <record id="bs_haccp_location_kitchen" model="bs.haccp.location">
+        <field name="name">Kitchen</field>
+        <field name="description">Main kitchen preparation area.</field>
+    </record>
+
+    <record id="bs_haccp_location_bar" model="bs.haccp.location">
+        <field name="name">Bar</field>
+        <field name="description">Drinks service area.</field>
+    </record>
+
+    <record id="bs_haccp_location_counter" model="bs.haccp.location">
+        <field name="name">Counter</field>
+        <field name="description">Customer counter and display.</field>
+    </record>
+
+    <record id="bs_haccp_equipment_crf" model="bs.haccp.equipment">
+        <field name="name">Cold Room Fridge</field>
+        <field name="brand">Liebherr</field>
+        <field name="reference">GKv 6460</field>
+        <field name="serial_number">LB-100234</field>
+        <field name="location_id" ref="bs_haccp_location_cold_room"/>
+        <field name="equipment_type">fridge</field>
+        <field name="temp_min">0</field>
+        <field name="temp_max">4</field>
+        <field name="check_interval_hours">12</field>
+    </record>
+
+    <record id="bs_haccp_equipment_crz" model="bs.haccp.equipment">
+        <field name="name">Cold Room Freezer</field>
+        <field name="brand">Liebherr</field>
+        <field name="reference">GGv 5860</field>
+        <field name="serial_number">LB-100235</field>
+        <field name="location_id" ref="bs_haccp_location_cold_room"/>
+        <field name="equipment_type">freezer</field>
+        <field name="temp_min">-25</field>
+        <field name="temp_max">-18</field>
+        <field name="check_interval_hours">12</field>
+    </record>
+
+    <record id="bs_haccp_equipment_kf" model="bs.haccp.equipment">
+        <field name="name">Kitchen Fridge</field>
+        <field name="brand">Electrolux</field>
+        <field name="reference">RE4000</field>
+        <field name="serial_number">EL-552011</field>
+        <field name="location_id" ref="bs_haccp_location_kitchen"/>
+        <field name="equipment_type">fridge</field>
+        <field name="temp_min">0</field>
+        <field name="temp_max">4</field>
+        <field name="check_interval_hours">12</field>
+    </record>
+
+    <record id="bs_haccp_equipment_kz" model="bs.haccp.equipment">
+        <field name="name">Kitchen Freezer</field>
+        <field name="brand">Electrolux</field>
+        <field name="reference">RF3500</field>
+        <field name="serial_number">EL-552012</field>
+        <field name="location_id" ref="bs_haccp_location_kitchen"/>
+        <field name="equipment_type">freezer</field>
+        <field name="temp_min">-25</field>
+        <field name="temp_max">-18</field>
+        <field name="check_interval_hours">12</field>
+    </record>
+
+    <record id="bs_haccp_equipment_bf" model="bs.haccp.equipment">
+        <field name="name">Bar Fridge</field>
+        <field name="brand">Foster</field>
+        <field name="reference">HR 360</field>
+        <field name="serial_number">FS-778801</field>
+        <field name="location_id" ref="bs_haccp_location_bar"/>
+        <field name="equipment_type">fridge</field>
+        <field name="temp_min">0</field>
+        <field name="temp_max">4</field>
+        <field name="check_interval_hours">12</field>
+    </record>
+
+    <record id="bs_haccp_equipment_cdf" model="bs.haccp.equipment">
+        <field name="name">Counter Display Fridge</field>
+        <field name="brand">Tefcold</field>
+        <field name="reference">UR 600</field>
+        <field name="serial_number">TF-330915</field>
+        <field name="location_id" ref="bs_haccp_location_counter"/>
+        <field name="equipment_type">fridge</field>
+        <field name="temp_min">0</field>
+        <field name="temp_max">4</field>
+        <field name="check_interval_hours">8</field>
+    </record>
+
+    <record id="bs_haccp_reading_crf_1" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=62)"/>
+        <field name="temperature">2.8</field>
+    </record>
+
+    <record id="bs_haccp_reading_crf_2" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=50)"/>
+        <field name="temperature">3.1</field>
+    </record>
+
+    <record id="bs_haccp_reading_crf_3" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=38)"/>
+        <field name="temperature">3.4</field>
+    </record>
+
+    <record id="bs_haccp_reading_crf_4" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=26)"/>
+        <field name="temperature">3.0</field>
+    </record>
+
+    <record id="bs_haccp_reading_crf_5" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=14)"/>
+        <field name="temperature">2.6</field>
+    </record>
+
+    <record id="bs_haccp_reading_crf_6" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=2)"/>
+        <field name="temperature">2.9</field>
+    </record>
+
+    <record id="bs_haccp_reading_crz_1" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crz"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=59, minutes=30)"/>
+        <field name="temperature">-21.0</field>
+    </record>
+
+    <record id="bs_haccp_reading_crz_2" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crz"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=47, minutes=30)"/>
+        <field name="temperature">-20.5</field>
+    </record>
+
+    <record id="bs_haccp_reading_crz_3" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crz"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=35, minutes=30)"/>
+        <field name="temperature">-19.8</field>
+    </record>
+
+    <record id="bs_haccp_reading_crz_4" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crz"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=23, minutes=30)"/>
+        <field name="temperature">-12.5</field>
+        <field name="corrective_action">Door was left ajar after a delivery. Door closed, temperature rechecked after 30 minutes (-19.5 °C), food kept frozen and checked by the manager.</field>
+    </record>
+
+    <record id="bs_haccp_reading_crz_5" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_crz"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=11, minutes=30)"/>
+        <field name="temperature">-20.2</field>
+    </record>
+
+    <record id="bs_haccp_reading_kf_1" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_kf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=68)"/>
+        <field name="temperature">3.2</field>
+    </record>
+
+    <record id="bs_haccp_reading_kf_2" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_kf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=56)"/>
+        <field name="temperature">3.8</field>
+    </record>
+
+    <record id="bs_haccp_reading_kf_3" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_kf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=44)"/>
+        <field name="temperature">6.5</field>
+        <field name="corrective_action">Fridge overloaded with warm food after service. Products moved to the cold room, load reduced, reading repeated 1 hour later (3.9 °C).</field>
+    </record>
+
+    <record id="bs_haccp_reading_kf_4" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_kf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=32)"/>
+        <field name="temperature">3.5</field>
+    </record>
+
+    <record id="bs_haccp_reading_kf_5" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_kf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=20)"/>
+        <field name="temperature">3.1</field>
+    </record>
+
+    <record id="bs_haccp_reading_bf_1" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_bf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=65)"/>
+        <field name="temperature">3.0</field>
+    </record>
+
+    <record id="bs_haccp_reading_bf_2" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_bf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=53)"/>
+        <field name="temperature">3.4</field>
+    </record>
+
+    <record id="bs_haccp_reading_bf_3" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_bf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=41)"/>
+        <field name="temperature">3.1</field>
+    </record>
+
+    <record id="bs_haccp_reading_bf_4" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_bf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=29)"/>
+        <field name="temperature">3.7</field>
+    </record>
+
+    <record id="bs_haccp_reading_bf_5" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_bf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=17)"/>
+        <field name="temperature">5.8</field>
+        <field name="corrective_action">Fridge restocked with warm bottles. Left to cool for 2 hours, no perishable food affected, temperature back to 3.5 °C.</field>
+    </record>
+
+    <record id="bs_haccp_reading_bf_6" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_bf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=5)"/>
+        <field name="temperature">3.6</field>
+    </record>
+
+    <record id="bs_haccp_reading_cdf_1" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_cdf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=43)"/>
+        <field name="temperature">2.2</field>
+    </record>
+
+    <record id="bs_haccp_reading_cdf_2" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_cdf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=35)"/>
+        <field name="temperature">2.6</field>
+    </record>
+
+    <record id="bs_haccp_reading_cdf_3" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_cdf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=27)"/>
+        <field name="temperature">3.0</field>
+    </record>
+
+    <record id="bs_haccp_reading_cdf_4" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_cdf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=19)"/>
+        <field name="temperature">2.7</field>
+    </record>
+
+    <record id="bs_haccp_reading_cdf_5" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_cdf"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=11)"/>
+        <field name="temperature">3.3</field>
+    </record>
+
+    <record id="bs_haccp_reading_cdf_6" model="bs.haccp.reading">
+        <field name="equipment_id" ref="bs_haccp_equipment_cdf"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="reading_date" eval="DateTime.now() - relativedelta(hours=3)"/>
+        <field name="temperature">2.9</field>
+    </record>
+</odoo>

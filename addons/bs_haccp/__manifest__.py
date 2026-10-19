@@ -14,5 +14,8 @@
         'views/bs_haccp_reading_views.xml',
         'views/bs_haccp_menus.xml',
     ],
+    'demo': [
+        'data/bs_haccp_demo.xml',
+    ],
     'application': True,
 }
