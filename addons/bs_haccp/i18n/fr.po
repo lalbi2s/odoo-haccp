@@ -1,0 +1,308 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bs_haccp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0-20260926\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-13 16:45+0000\n"
+"PO-Revision-Date: 2026-10-13 16:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__active
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_location__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: bs_haccp
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_equipment_view_search
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_location_view_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__brand
+msgid "Brand"
+msgstr "Marque"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__check_interval_hours
+msgid "Check Interval (hours)"
+msgstr "Intervalle de contrôle (heures)"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__check_state
+msgid "Check State"
+msgstr "État du contrôle"
+
+#. module: bs_haccp
+#: model:ir.ui.menu,name:bs_haccp.bs_haccp_menu_config
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__corrective_action
+msgid "Corrective Action"
+msgstr "Action corrective"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__create_uid
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_location__create_uid
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__create_date
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_location__create_date
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_location__description
+msgid "Description"
+msgstr "Description"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__display_name
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_location__display_name
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: bs_haccp
+#: model:ir.model.fields.selection,name:bs_haccp.selection__bs_haccp_equipment__check_state__due_soon
+msgid "Due Soon"
+msgstr "À contrôler bientôt"
+
+#. module: bs_haccp
+#: model:res.groups,name:bs_haccp.group_bs_haccp_user
+msgid "Employee"
+msgstr "Employé"
+
+#. module: bs_haccp
+#: model:ir.actions.act_window,name:bs_haccp.bs_haccp_equipment_action
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__equipment_id
+#: model:ir.ui.menu,name:bs_haccp.bs_haccp_equipment_menu
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_reading_view_search
+msgid "Equipment"
+msgstr "Équipement"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__equipment_type
+msgid "Equipment Type"
+msgstr "Type d'équipement"
+
+#. module: bs_haccp
+#: model:ir.model.fields.selection,name:bs_haccp.selection__bs_haccp_equipment__equipment_type__freezer
+msgid "Freezer"
+msgstr "Congélateur"
+
+#. module: bs_haccp
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_equipment_view_search
+msgid "Freezers"
+msgstr "Congélateurs"
+
+#. module: bs_haccp
+#: model:ir.model.fields.selection,name:bs_haccp.selection__bs_haccp_equipment__equipment_type__fridge
+msgid "Fridge"
+msgstr "Réfrigérateur"
+
+#. module: bs_haccp
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_equipment_view_search
+msgid "Fridges"
+msgstr "Réfrigérateurs"
+
+#. module: bs_haccp
+#: model:ir.module.module,shortdesc:base.module_bs_haccp
+#: model:ir.ui.menu,name:bs_haccp.bs_haccp_menu_root
+#: model:res.groups.privilege,name:bs_haccp.res_groups_privilege_bs_haccp
+msgid "HACCP"
+msgstr "HACCP"
+
+#. module: bs_haccp
+#: model:ir.model,name:bs_haccp.model_bs_haccp_equipment
+msgid "HACCP Equipment"
+msgstr "Équipement HACCP"
+
+#. module: bs_haccp
+#: model:ir.model,name:bs_haccp.model_bs_haccp_location
+msgid "HACCP Location"
+msgstr "Emplacement HACCP"
+
+#. module: bs_haccp
+#: model:ir.model,name:bs_haccp.model_bs_haccp_reading
+msgid "HACCP Temperature Reading"
+msgstr "Relevé de température HACCP"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__id
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_location__id
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__id
+msgid "ID"
+msgstr "ID"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__is_compliant
+msgid "Is Compliant"
+msgstr "Conforme"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__last_reading_date
+msgid "Last Reading Date"
+msgstr "Date du dernier relevé"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__write_uid
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_location__write_uid
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__write_uid
+msgid "Last Updated by"
+msgstr "Mis à jour par"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__write_date
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_location__write_date
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__write_date
+msgid "Last Updated on"
+msgstr "Mis à jour le"
+
+#. module: bs_haccp
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_equipment_view_kanban
+msgid "Last reading:"
+msgstr "Dernier relevé :"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__location_id
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_equipment_view_search
+msgid "Location"
+msgstr "Emplacement"
+
+#. module: bs_haccp
+#: model:ir.actions.act_window,name:bs_haccp.bs_haccp_location_action
+#: model:ir.ui.menu,name:bs_haccp.bs_haccp_location_menu
+msgid "Locations"
+msgstr "Emplacements"
+
+#. module: bs_haccp
+#: model:res.groups,name:bs_haccp.group_bs_haccp_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__temp_max
+msgid "Max Temperature (°C)"
+msgstr "Température max. (°C)"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__temp_min
+msgid "Min Temperature (°C)"
+msgstr "Température min. (°C)"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__name
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_location__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: bs_haccp
+#: model:res.groups.privilege,placeholder:bs_haccp.res_groups_privilege_bs_haccp
+msgid "No"
+msgstr "Non"
+
+#. module: bs_haccp
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_equipment_view_kanban
+msgid "No reading yet"
+msgstr "Aucun relevé"
+
+#. module: bs_haccp
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_reading_view_search
+msgid "Non-compliant"
+msgstr "Non conforme"
+
+#. module: bs_haccp
+#: model:ir.model.fields.selection,name:bs_haccp.selection__bs_haccp_equipment__check_state__overdue
+msgid "Overdue"
+msgstr "En retard"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__reading_ids
+msgid "Reading"
+msgstr "Relevés"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__reading_date
+msgid "Reading Date"
+msgstr "Date du relevé"
+
+#. module: bs_haccp
+#: model:ir.actions.act_window,name:bs_haccp.bs_haccp_reading_action
+#: model:ir.ui.menu,name:bs_haccp.bs_haccp_reading_menu
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_equipment_view_form
+msgid "Readings"
+msgstr "Relevés"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__reference
+msgid "Reference"
+msgstr "Référence"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_equipment__serial_number
+msgid "Serial Number"
+msgstr "Numéro de série"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__temperature
+msgid "Temperature (°C)"
+msgstr "Température (°C)"
+
+#. module: bs_haccp
+#: model:ir.model.constraint,message:bs_haccp.constraint_bs_haccp_equipment_temp_range_check
+msgid "The minimum temperature must be lower than the maximum temperature."
+msgstr "La température minimale doit être inférieure à la température maximale."
+
+#. module: bs_haccp
+#. odoo-python
+#: code:addons/bs_haccp/models/bs_haccp_reading.py:0
+msgid "This reading is out of range: describe the corrective action."
+msgstr "Ce relevé est hors limites : décrivez l'action corrective."
+
+#. module: bs_haccp
+#: model:ir.module.module,summary:base.module_bs_haccp
+msgid "Track cold storage temperatures for food safety"
+msgstr "Suivez les températures de vos frigos et congélateurs pour la sécurité alimentaire"
+
+#. module: bs_haccp
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_equipment_view_search
+msgid "Type"
+msgstr "Type"
+
+#. module: bs_haccp
+#: model:ir.model.fields.selection,name:bs_haccp.selection__bs_haccp_equipment__check_state__up_to_date
+msgid "Up to Date"
+msgstr "À jour"
+
+#. module: bs_haccp
+#: model:ir.model.fields,field_description:bs_haccp.field_bs_haccp_reading__user_id
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_reading_view_search
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: bs_haccp
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_equipment_view_kanban
+msgid "°C"
+msgstr "°C"
+
+#. module: bs_haccp
+#: model_terms:ir.ui.view,arch_db:bs_haccp.bs_haccp_equipment_view_kanban
+msgid "°C to"
+msgstr "°C à"
