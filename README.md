@@ -37,17 +37,24 @@ glance which equipment has not been checked in time.
 
 ## Installation (Docker Compose)
 
-Requirements: Docker with Docker Compose.
+Requirements: Git and Docker with Docker Compose (ports 8069 and 5432 free).
 
 ```bash
 git clone <this repository>
 cd odoo-dev
+docker compose up -d db
+docker compose run --rm odoo odoo -d dev -i bs_haccp --stop-after-init --no-http
 docker compose up -d
 ```
 
-1. Open <http://localhost:8069> and create a database named `dev`.
-2. Go to **Apps**, remove the *Apps* filter, search for **HACCP** and click
-   **Install**.
+The first command that runs Odoo creates the `dev` database, installs the
+module and loads the demo data. It takes one to two minutes and stops by
+itself.
+
+Then open <http://localhost:8069>, log in with `admin` / `admin` and open the
+**HACCP** menu.
+
+To stop everything and delete the data: `docker compose down -v`.
 
 The `addons/` folder is mounted in the container, so the module is found
 automatically. After a change in a Python file:
